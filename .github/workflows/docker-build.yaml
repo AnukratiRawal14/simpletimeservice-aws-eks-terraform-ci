@@ -5,13 +5,11 @@ on:
     branches:
       - main
     paths:
-      - 'app/**'
-      - 'Dockerfile'
+      - 'app/*'
 
   pull_request:
     paths:
-      - 'app/**'
-      - 'Dockerfile'
+      - 'app/*'
 
 jobs:
   docker:
@@ -38,7 +36,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./app
           push: ${{ github.event_name == 'push' }}
           tags: |
             anukrati14/simpletimeservice:latest
