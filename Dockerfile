@@ -6,7 +6,7 @@ RUN pip install -r requirements.txt
 
 COPY app/ .
 
-# Create non-root user and give admin access
+# Create non-root user
 RUN useradd -m appuser && chown -R appuser /app
 USER appuser
 
